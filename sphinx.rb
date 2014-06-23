@@ -19,7 +19,7 @@ class Sphinx < Formula
   def install
     lstem = Pathname.pwd+'libstemmer_c'
     lstem.mkpath
-    Libstemmer.new.brew { mv Dir['*'], lstem }
+    Libstemmer.new('libstemmer', lstem, :stable).brew { mv Dir['*'], lstem }
 
     args = ["--prefix=#{prefix}",
             "--disable-debug",
